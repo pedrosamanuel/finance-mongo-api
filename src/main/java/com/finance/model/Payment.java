@@ -4,6 +4,7 @@ import com.finance.generic.BaseDocument;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
+import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
 @Document(collection = "payment")
@@ -13,6 +14,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Payment extends BaseDocument<String> {
     private float amount;
-    private LocalDate date;
+    private Date date;
     private String monthlyPaymentId;
 }

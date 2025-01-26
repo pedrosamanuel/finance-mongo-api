@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/expense")
 public class ExpenseController extends UserDependentController<Expense, ExpenseResponse, ExpenseRequest, ExpenseService, ExpenseRepository, String> {
-
     protected ExpenseController(ExpenseService service, JwtUtils jwtUtils, UserDetailsServiceImpl userDetailsService) {
         super(service, jwtUtils, userDetailsService);
     }
-
-
 }

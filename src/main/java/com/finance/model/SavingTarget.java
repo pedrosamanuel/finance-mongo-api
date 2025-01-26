@@ -6,6 +6,7 @@ import org.springframework.cglib.core.Local;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
 @Document(collection = "savingTarget")
@@ -16,7 +17,7 @@ import java.time.LocalDate;
 public class SavingTarget extends BaseDocument<String> {
     private String description;
     private float amount;
-    private LocalDate deadlineDate;
+    private Date deadlineDate;
     private String userId;
     @Builder.Default
     private boolean isActive = true;

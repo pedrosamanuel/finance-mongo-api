@@ -7,6 +7,9 @@ import com.finance.payload.response.IncomeResponse;
 import com.finance.repository.IncomeRepository;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 @Service
 public class IncomeService extends UserDependentService<Income, IncomeResponse, IncomeRequest, IncomeRepository, String> {
     public IncomeService(IncomeRepository repository) {
@@ -18,6 +21,7 @@ public class IncomeService extends UserDependentService<Income, IncomeResponse, 
         return Income.builder()
                 .amount(request.getAmount())
                 .description(request.getDescription())
+                .date(Date.valueOf(LocalDate.now()))
                 .userId(userId)
                 .build();
     }
@@ -41,6 +45,7 @@ public class IncomeService extends UserDependentService<Income, IncomeResponse, 
         res.setId(entity.getId());
         res.setAmount(entity.getAmount());
         res.setDescription(entity.getDescription());
+        res.setDate(entity.getDate());
         return res;
     }
 }

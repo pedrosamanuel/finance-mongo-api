@@ -10,6 +10,7 @@ import com.finance.repository.MonthlyPaymentRepository;
 import com.finance.repository.PaymentRepository;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -26,7 +27,7 @@ public class PaymentService extends UserIndependentService<Payment, PaymentRespo
     protected Payment createEntity(PaymentRequest request) {
         return Payment.builder()
                 .amount(request.getAmount())
-                .date(LocalDate.now())
+                .date(Date.valueOf(LocalDate.now()))
                 .monthlyPaymentId(request.getMonthlyPaymentId())
                 .build();
     }
