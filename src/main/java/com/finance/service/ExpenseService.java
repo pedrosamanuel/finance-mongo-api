@@ -73,7 +73,7 @@ public class ExpenseService extends UserDependentService<Expense, ExpenseRespons
 
     public List<ExpenseByCategoryResponse> getExpenseByCategory(String userId, int month, int year) {
         List<ExpenseSummaryDto> expenseSummaryDtos = expenseRepository.getExpenseByCategory(userId,month,year);
-        List<ExpenseByCategoryResponse> responses = new ArrayList<>();
+         List<ExpenseByCategoryResponse> responses = new ArrayList<>();
         for (ExpenseSummaryDto dto : expenseSummaryDtos){
             ExpenseByCategoryResponse res = new ExpenseByCategoryResponse();
             Optional<Category> category = categoryService.findById(dto.get_id());

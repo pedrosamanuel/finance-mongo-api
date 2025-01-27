@@ -1,12 +1,10 @@
 package com.finance.controller;
 
-import com.finance.model.Expense;
 import com.finance.payload.response.ExpenseByCategoryResponse;
 import com.finance.security.jwt.JwtUtils;
 import com.finance.security.services.UserDetailsImpl;
 import com.finance.security.services.UserDetailsServiceImpl;
 import com.finance.service.DashboardService;
-import com.finance.service.ExpenseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -28,7 +26,7 @@ public class DashboardController {
         this.jwtUtils = jwtUtils;
         this.userDetailsService = userDetailsService;
     }
-    @GetMapping
+    @GetMapping("/expenseByCategory")
     public ResponseEntity<List<ExpenseByCategoryResponse>> getExpenseByCategory(
             @CookieValue(value = "jwtToken",defaultValue = "null") String cookie) {
         if (cookie.equals("null")) {
